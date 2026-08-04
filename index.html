@@ -257,6 +257,8 @@ const lines = [
     "Poor reader smile before your lips go numb",
     "The best of all things to an end must come"
 ];
+];
+
 let currentSeed = "";
 
 function createSeed() {
@@ -274,7 +276,6 @@ function hashString(str) {
     return function () {
         h = Math.imul(h ^ (h >>> 16), 2246822507);
         h = Math.imul(h ^ (h >>> 13), 3266489909);
-
         return (h ^= h >>> 16) >>> 0;
     };
 }
@@ -296,9 +297,17 @@ function rngFromSeed(seed) {
 
 function newSeed() {
     currentSeed = createSeed();
+
     document.getElementById("seed").value = currentSeed;
+
+    const url = new URL(window.location);
+    url.searchParams.set("seed", currentSeed);
+
+    window.history.replaceState({}, "", url);
+
     randomPoem();
 }
+
 const selectors = document.getElementById("selectors");
 
 for (let i = 0; i < NUM_LINES; i++) {
@@ -306,8 +315,10 @@ for (let i = 0; i < NUM_LINES; i++) {
 
     for (let j = 0; j < NUM_SONNETS; j++) {
         const option = document.createElement("option");
+
         option.value = j;
         option.textContent = `Line ${i + 1}: Sonnet ${j + 1}`;
+
         select.appendChild(option);
     }
 
@@ -323,7 +334,6 @@ function showPoem(poemLines) {
 }
 
 function randomPoem() {
-
     const seedBox = document.getElementById("seed");
 
     if (seedBox.value.trim() !== "") {
@@ -335,7 +345,6 @@ function randomPoem() {
     const result = [];
 
     for (let position = 0; position < NUM_LINES; position++) {
-
         const sonnet = Math.floor(rng() * NUM_SONNETS);
 
         const index = sonnet * NUM_LINES + position;
@@ -350,18 +359,31 @@ function randomPoem() {
 
 function customPoem() {
     const selects = selectors.querySelectorAll("select");
+
     const result = [];
 
     selects.forEach((select, position) => {
         const sonnet = Number(select.value);
+
         const index = sonnet * NUM_LINES + position;
+
         result.push(lines[index]);
     });
+
+    currentSeed = "";
+
+    document.getElementById("seed").value = "";
 
     showPoem(result);
 }
 
-newSeed();
+const params = new URLSearchParams(window.location.search);
+
+currentSeed = params.get("seed") || createSeed();
+
+document.getElementById("seed").value = currentSeed;
+
+randomPoem();
 
 </script>
 
