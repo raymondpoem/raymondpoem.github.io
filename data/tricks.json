@@ -1,0 +1,25 @@
+{
+  "version":1,
+  "tricks":[
+    {
+      "id":"big-cup",
+      "name":"Big Cup",
+      "description":"Catch the tama in the big cup.",
+      "grips":[
+        "ken-grip"
+      ],
+      "difficulty":1,
+      "demonstration":"https:\/\/youtu.be\/PLACEHOLDER_BIG_CUP"
+    },
+    {
+      "id":"small-cup",
+      "name":"Small Cup",
+      "description":"Catch the tama in the small cup.",
+      "grips":[
+        "ken-grip"
+      ],
+      "difficulty":1,
+      "demonstration":"https:\/\/youtu.be\/PLACEHOLDER_SMALL_CUP"
+    }
+  ]
+}
