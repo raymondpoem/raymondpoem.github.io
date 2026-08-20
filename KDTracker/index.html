@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KDTracker</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>KDTracker</h1>
+
+    <nav>
+      <button data-section="tricks">Tricks</button>
+      <button data-section="combos">Combos</button>
+      <button data-section="progress">Progress</button>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- Tricks -->
+
+    <section id="tricks" data-page="tricks">
+
+      <h2>Tricks</h2>
+
+      <input
+        id="trick-search"
+        type="search"
+        placeholder="Search tricks"
+        autocomplete="off"
+      >
+
+      <div id="trick-list"></div>
+
+    </section>
+
+
+    <!-- Combos -->
+
+   <section id="combos" data-page="combos" hidden>
+
+  <h2>Combos</h2>
+
+  <div class="combo-editor">
+
+    <div class="combo-add-row">
+
+      <select id="combo-trick"></select>
+
+      <input
+        id="combo-repetitions"
+        type="number"
+        min="1"
+        value="1"
+      >
+
+      <button id="combo-add">
+        Add
+      </button>
+
+    </div>
+
+
+    <div id="combo-list"></div>
+
+
+    <input
+      id="combo-name"
+      type="text"
+      placeholder="Combo name"
+      autocomplete="off"
+    >
+
+
+    <div class="combo-actions">
+
+      <button id="combo-new">
+        New Combo
+      </button>
+
+      <button id="combo-clear">
+        Clear
+      </button>
+
+      <button id="combo-save">
+        Save Combo
+      </button>
+
+    </div>
+
+
+    <h3>Saved Combos</h3>
+
+    <div id="saved-combo-list"></div>
+
+
+    <div class="combo-import-export">
+
+      <button id="combo-export">
+        Export
+      </button>
+
+      <button id="combo-copy">
+        Copy
+      </button>
+
+      <button id="combo-import">
+        Import
+      </button>
+
+      <textarea
+        id="combo-import-input"
+        placeholder="Combo string..."
+        spellcheck="false"
+      ></textarea>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="testing" data-page="testing" hidden>
+
+  <h2>Combo Testing</h2>
+
+  <div id="test-area"></div>
+
+</section>
+    <!-- Progress -->
+
+    <section id="progress" data-page="progress" hidden>
+
+      <h2>Progress</h2>
+
+      <div class="save-controls">
+
+        <button id="save-export">
+          Export Save
+        </button>
+
+        <button id="save-copy">
+          Copy
+        </button>
+
+        <button id="save-import">
+          Import Save
+        </button>
+
+      </div>
+
+      <textarea
+        id="save-string"
+        placeholder="Save string..."
+        spellcheck="false"
+        autocomplete="off"
+      ></textarea>
+
+    </section>
+
+  </main>
+
+
+  <script
+    type="module"
+    src="js/main.js">
+  </script>
+
+</body>
+
+</html>
