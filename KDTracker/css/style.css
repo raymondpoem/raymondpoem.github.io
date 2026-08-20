@@ -1,0 +1,382 @@
+/* ================================
+   KDTracker
+   ================================ */
+.trick-grip {
+  flex: 0 0 auto;
+
+  font-size: 0.85rem;
+
+  opacity: 0.6;
+
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .trick-grip {
+    font-size: 0.75rem;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+main {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+/* ================================
+   Headings
+   ================================ */
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+
+/* ================================
+   Search
+   ================================ */
+
+#trick-search {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+
+  font: inherit;
+
+  border: 1px solid #aaa;
+  border-radius: 6px;
+}
+
+
+/* ================================
+   Trick list
+   ================================ */
+
+#trick-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+/* ================================
+   Trick dropdown
+   ================================ */
+
+.trick-item {
+  width: 100%;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+
+  overflow: hidden;
+}
+
+
+/* Trick header */
+
+.trick-item summary {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  min-height: 48px;
+  padding: 10px 12px;
+
+  cursor: pointer;
+
+  list-style-position: inside;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+/* Remove default marker */
+
+.trick-item summary::marker {
+  font-size: 0.8em;
+}
+
+
+/* Trick checkbox */
+
+.trick-checkbox {
+  flex: 0 0 auto;
+
+  width: 20px;
+  height: 20px;
+
+  margin: 0;
+
+  cursor: pointer;
+}
+
+
+/* Trick name */
+
+.trick-name {
+  flex: 1;
+
+  font-weight: 500;
+}
+
+
+/* Progress shown in collapsed row */
+
+.trick-progress {
+  flex: 0 0 auto;
+
+  opacity: 0.6;
+
+  white-space: nowrap;
+}
+
+
+/* ================================
+   Trick contents
+   ================================ */
+
+.trick-content {
+  padding: 15px 20px 20px 38px;
+
+  border-top: 1px solid #ccc;
+}
+
+.trick-content p {
+  margin-top: 0;
+}
+
+
+/* ================================
+   Progress inputs
+   ================================ */
+
+.progress-inputs {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 15px;
+
+  margin: 15px 0;
+}
+
+.progress-inputs label {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.progress-inputs input {
+  width: 100px;
+
+  padding: 7px 8px;
+
+  font: inherit;
+
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+
+/* ================================
+   Buttons
+   ================================ */
+
+button {
+  padding: 8px 14px;
+
+  font: inherit;
+
+  border: 1px solid #aaa;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(0.95);
+}
+
+
+/* ================================
+   Trick statistics
+   ================================ */
+
+.trick-stats {
+  margin-bottom: 15px;
+}
+
+.trick-stats p {
+  margin: 4px 0;
+}
+
+
+/* ================================
+   Demonstration
+   ================================ */
+
+.trick-content a {
+  display: inline-block;
+
+  margin-top: 12px;
+}
+
+
+/* ================================
+   Mobile
+   ================================ */
+
+@media (max-width: 600px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .trick-item summary {
+    padding: 10px;
+  }
+
+  .trick-content {
+    padding: 15px;
+  }
+
+  .progress-inputs {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .progress-inputs input {
+    width: 100%;
+  }
+
+  .trick-progress {
+    font-size: 0.9rem;
+  }
+}
+/* ================================
+   Trick buttons
+   ================================ */
+
+.trick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+
+/* ================================
+   Testing overlay
+   ================================ */
+
+#test-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  z-index: 1000;
+}
+
+
+#test-panel {
+  width: 100%;
+  max-width: 500px;
+
+  padding: 25px;
+
+  background: white;
+
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+
+#test-panel h2 {
+  margin-bottom: 10px;
+}
+
+
+.test-counter {
+  font-size: 1.2rem;
+}
+
+
+.test-buttons {
+  display: flex;
+
+  gap: 10px;
+
+  margin: 25px 0;
+}
+
+
+.test-buttons button {
+  flex: 1;
+
+  min-height: 100px;
+
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+
+.test-landed {
+  border: 2px solid #4a8;
+}
+
+
+.test-missed {
+  border: 2px solid #c66;
+}
+
+
+#test-panel > button {
+  margin: 5px;
+}
+
+
+@media (max-width: 600px) {
+
+  #test-panel {
+    padding: 20px;
+  }
+
+  .test-buttons {
+    flex-direction: column;
+  }
+
+  .test-buttons button {
+    min-height: 80px;
+  }
+}
